@@ -16,18 +16,23 @@ console.log('Test - should say "Hello World!"', hello());
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName(name) {
   return;
+  console.log(name);
 }
 // Remember to call the function to test
 
 
 // 3. Function to add two numbers together & return the result
 function addNumbers(firstNumber) {
+  return firstNumber + 5;
+  console.log(addNumbers);
   // return firstNumber + secondNumber;
 }
 
 
 // 4. Function to multiply three numbers & return the result
 function multiplyThree() {
+  return 5 * 5 * 5;
+  console.log(multiplyThree);
 
 }
 
@@ -39,22 +44,36 @@ function isPositive(number) {
     return;
   }
   return;
+  console.log(isPositive);
 }
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
+console.log(isPositive(5)); 
+console.log(isPositive(-5)); 
 
 
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
 function getLast(array) {
-
-}
+  if (array.length > 0) {
+    return array[array.length - 1];
+    }
+    return;
+    console.log(getLast);
+    // return array.length - 1;
+    }
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 function find(value, array) {
-
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === value) {
+      return true;
+      }
+      return;
+      console.log(find);
+      }
 }
 
 // ----------------------
@@ -63,22 +82,42 @@ function find(value, array) {
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if (string[0] === letter) {
+    return true;
+    }
+    console.log(isFirstLetter)
 }
 
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === 'number') {
+      sum += array[i];
+      }
+      }
+      return sum;
+      console.log(sumAll);
+      return array.reduce((a, b) => a + b, 0);
+      }
   // TODO: loop to add items
 
   // TODO: return the sum
-}
+
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 function allPositive() {
+  let positiveNumbers = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 0) {
+      positiveNumbers.push(array[i]);
+      }
+      }
+      return positiveNumbers;
+      console.log(positiveNumbers)
 
 }
 
@@ -87,6 +126,15 @@ function allPositive() {
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
 
+// codewars.com Problem - Catching Car Mileage Numbers
+// Description is copied and pasted 
+// "7777...8?!??!", exclaimed Bob, "I missed it again! Argh!" Every time there's an interesting number coming up, he notices and then promptly forgets. Who doesn't like catching those one-off interesting mileage numbers?
+
+// Let's make it so Bob never misses another interesting number. We've hacked into his car's computer, and we have a box hooked up that reads mileage numbers. We've got a box glued to his dash that lights up yellow or green depending on whether it receives a 1 or a 2 (respectively).
+
+// It's up to you, intrepid warrior, to glue the parts together. Write the function that parses the mileage number input, and returns a 2 if the number is "interesting" (see below), a 1 if an interesting number occurs within the next two miles, or a 0 if the number is not interesting.
+
+// Note: In Haskell, we use No, Almost and Yes instead of 0, 1 and 2.
 
 // DO NOT MODIFY
 // Used for automated testing
