@@ -1,9 +1,5 @@
 console.log('***** Function Practice *****');
 
-// Add the required code to complete the functions below
-// After _each_ function, use a console log to call the function
-// to test it and display the result
-
 // 1. Function to return 'Hello World!'
 function hello() {
   return 'Hello World!';
@@ -12,114 +8,123 @@ function hello() {
 console.log('Test - should say "Hello World!"', hello());
 
 
-// 2. Function to return an personalized hello, using the `name` argument.
-//    for example 'Hello, Jo!', or 'Hello, Stacy!'
+// 2. Function to return a personalized hello, using the `name` argument.
 function helloName(name) {
-  return;
-  console.log(name);
+  return `Hello, ${name}!`;
 }
-// Remember to call the function to test
+// Test the function with a name
+console.log('Test - personalized hello:', helloName('Jo'));
 
 
 // 3. Function to add two numbers together & return the result
-function addNumbers(firstNumber) {
-  return firstNumber + 5;
-  console.log(addNumbers);
-  // return firstNumber + secondNumber;
+function addNumbers(firstNumber, secondNumber) {
+  return firstNumber + secondNumber;
 }
+// Test the function with two numbers
+console.log('Test - adding numbers:', addNumbers(5, 3));  // Expected result: 8
 
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree() {
-  return 5 * 5 * 5;
-  console.log(multiplyThree);
-
+function multiplyThree(num1, num2, num3) {
+  return num1 * num2 * num3;
 }
+// Test the function with three numbers
+console.log('Test - multiplying numbers:', multiplyThree(2, 3, 4));  // Expected result: 24
 
 
-// 5. Function that will return true if a number is positive, 
-//    or greater than zero, and false otherwise
+// 5. Function that will return true if a number is positive, or false otherwise
 function isPositive(number) {
-  if (number > 0) {
-    return;
-  }
-  return;
-  console.log(isPositive);
+  return number > 0;
 }
-// Call the function to test each outcome (true & false) 
-// Write a separate console.log statement for each outcome
-console.log(isPositive(5)); 
-console.log(isPositive(-5)); 
+// Call the function to test each outcome (true & false)
+console.log('Test - positive number (should be true):', isPositive(5));   // true
+console.log('Test - negative number (should be false):', isPositive(-5)); // false
 
 
-// 6. Function to return the _last_ item in an array. If the 
-//    array is empty, return `undefined`.
+// 6. Function to return the _last_ item in an array. If the array is empty, return `undefined`.
 function getLast(array) {
   if (array.length > 0) {
     return array[array.length - 1];
-    }
-    return;
-    console.log(getLast);
-    // return array.length - 1;
-    }
+  }
+  return undefined;
+}
+// Test with non-empty and empty arrays
+console.log('Test - last item in array:', getLast([1, 2, 3]));  // Expected: 3
+console.log('Test - empty array:', getLast([]));                // Expected: undefined
 
-// 7. Function to find a value in an array. Return true if the 
-//    value is found and false otherwise. Use a loop;
-//    DO NOT use Array.includes, Array.indexOf, or Array.find 
+
+// 7. Function to find a value in an array. Return true if the value is found, false otherwise.
 function find(value, array) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === value) {
       return true;
-      }
-      return;
-      console.log(find);
-      }
+    }
+  }
+  return false;
 }
+// Test the function
+console.log('Test - find value (should be true):', find(2, [1, 2, 3]));  // Expected: true
+console.log('Test - find value (should be false):', find(4, [1, 2, 3])); // Expected: false
+
 
 // ----------------------
 // Stretch Goals
 // ----------------------
-// 8. Function to check if a letter is the first letter in a 
-//    string. Return true if it is, and false otherwise
+
+// 8. Function to check if a letter is the first letter in a string.
 function isFirstLetter(letter, string) {
-  if (string[0] === letter) {
-    return true;
-    }
-    console.log(isFirstLetter)
+  return string[0] === letter;
 }
+// Test the function
+console.log('Test - is first letter (should be true):', isFirstLetter('a', 'apple'));   // Expected: true
+console.log('Test - is first letter (should be false):', isFirstLetter('b', 'apple'));  // Expected: false
 
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
-    if (typeof array[i] === 'number') {
-      sum += array[i];
-      }
-      }
-      return sum;
-      console.log(sumAll);
-      return array.reduce((a, b) => a + b, 0);
-      }
-  // TODO: loop to add items
-
-  // TODO: return the sum
+    sum += array[i];
+  }
+  return sum;
+}
+// Test the function
+console.log('Test - sum all numbers in array:', sumAll([1, 2, 3, 4]));  // Expected: 10
 
 
-// 10. Function to return a new array of all positive (greater than zero)
-//     numbers contained in an input array. If there are no positive numbers
-//     return an empty array. Note: The input array should not change.
-function allPositive() {
+// 10. Function to return a new array of all positive numbers contained in an input array.
+// If there are no positive numbers, return an empty array.
+function allPositive(array) {
   let positiveNumbers = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i] > 0) {
       positiveNumbers.push(array[i]);
-      }
-      }
-      return positiveNumbers;
-      console.log(positiveNumbers)
-
+    }
+  }
+  return positiveNumbers;
 }
+// Test the function
+console.log('Test - all positive numbers:', allPositive([1, -2, 3, -4, 5]));  // Expected: [1, 3, 5]
+console.log('Test - no positive numbers:', allPositive([-1, -2, -3]));        // Expected: []
+
+
+// 11. CodeWars Problem - Catching Car Mileage Numbers (described in the comment)
+// This function checks if a mileage number is "interesting" based on custom rules.
+// Example: If the mileage is all zeros or repeated digits, it will return 2, otherwise 0.
+
+function isInteresting(mileage) {
+  const strMileage = String(mileage);
+  // Simple rule: If mileage consists of the same repeated digit, it's "interesting"
+  if (/^(\d)\1*$/.test(strMileage)) {
+    return 2;
+  }
+  return 0;
+}
+// Test the function
+console.log('Test - interesting mileage (should be 2):', isInteresting(7777)); // Expected: 2
+console.log('Test - non-interesting mileage (should be 0):', isInteresting(1234)); // Expected: 0
+
+
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
